@@ -1,0 +1,45 @@
+.card-component {
+  position: absolute;
+  width: 20%;
+  padding-top: 20%;
+  border-radius: 50%;
+  border: solid 1px rgba(255, 217, 0, 0.2);
+  cursor: pointer;
+}
+
+.card-component.active:hover {
+  box-shadow: 0 0 50px #8ee3ef30;
+}
+
+.img-wrapper {
+  position: absolute;
+  border-radius: 50%;
+  border: solid 2px #8ee3ef60;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  overflow: hidden;
+}
+
+.img-wrapper img {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+
+.card-component.active .img-wrapper img {
+  transition: transform 0.12s ease-in;
+  /* transform: rotate(360deg); */
+}
+
+.card-component.active .img-wrapper img:hover {
+  /* transition: transform 2s ease-in-out; */
+  transform: rotate(-2deg) scale(1.07);
+  box-shadow: 0 0 10px gold;
+}
+
+.card-component.inactive {
+  filter: blur(30px);
+  cursor: initial;
+}

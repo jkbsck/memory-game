@@ -1,38 +1,27 @@
 import React from "react";
+import "./Score.css";
 
 const Score = (props) => {
   const gameOver = (
     <div>
-      <span>GAME OVER!</span>
+      <span>{props.score === 12 ? "YOU WON!" : "GAME OVER!"}</span>
       <br></br>
-      <button className="btn btn-secondary" onClick={props.gameReset}>
+      <button className="play-again btn" onClick={props.gameReset}>
         Play again
       </button>
     </div>
   );
 
   return (
-    <div
-      className="col-4 position-absolute bg-secondary rounded-circle"
-      style={Object.assign(
-        { width: "33.333%", paddingTop: "33.333%" },
-        props.style
-      )}
-    >
-      <div
-        className="position-absolute rounded-circle bg-primary"
-        style={{
-          top: "0",
-          bottom: "0",
-          left: "0",
-          right: "0",
-        }}
-      >
-        <div className="d-flex flex-column">
-          <h5 className="p-2 pt-4">Score: {props.score}</h5>
-          <h5 className="p-2">High score: {props.highScore}</h5>
+    <div className="score-component col-6">
+      <div>
+        <div className="score">
+          <div>
+            <h6>Score: {props.score}</h6>
+            <h6>High score: {props.highScore}</h6>
+          </div>
 
-          <span className="p-2">{props.gameOver ? gameOver : null}</span>
+          {props.gameOver || props.score === 12 ? gameOver : null}
         </div>
       </div>
     </div>

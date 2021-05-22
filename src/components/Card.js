@@ -1,4 +1,5 @@
 import React from "react";
+import "./Card.css";
 
 const Card = (props) => {
   const playHandler = () => props.playHandler(props.item.id);
@@ -6,26 +7,13 @@ const Card = (props) => {
   return (
     <div
       onClick={props.gameOver ? null : playHandler}
-      className={"col-2 position-absolute rounded-circle " + props.className}
-      style={Object.assign(
-        {
-          width: "16.667%",
-          paddingTop: "16.667%",
-        },
-        props.style
-      )}
+      className={`card-component col-2 ${
+        props.gameOver ? "inactive" : "active"
+      }`}
+      style={props.style}
     >
-      <div
-        className="position-absolute rounded-circle bg-danger"
-        style={{
-          top: "0",
-          bottom: "0",
-          left: "0",
-          right: "0",
-          filter: props.gameOver ? "blur(5px)" : "",
-        }}
-      >
-        {props.item.id}
+      <div className="img-wrapper">
+        <img src={props.item.src} alt={props.item.name} />
       </div>
     </div>
   );

@@ -1,16 +1,19 @@
 import "./App.css";
-import Header from "./components/Header";
+
 import Main from "./components/Main";
 import React, { useState } from "react";
 
 function App() {
+  const [blurBg, setBlurBg] = useState("blur");
+
   return (
-    <div
-      className="App bg-info"
-      style={{ height: "100vh", maxWidth: "100vh", margin: "0 auto" }}
-    >
-      {/* <Header /> */}
-      <Main />
+    <div className={`App ${blurBg}`}>
+      <Main setBlurBg={setBlurBg} />
+      <img
+        className="bg-img"
+        src="https://cdn.wallpapersafari.com/91/15/317d0k.jpg"
+        alt="space"
+      />
     </div>
   );
 }
