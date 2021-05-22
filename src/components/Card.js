@@ -1,5 +1,5 @@
 import React from "react";
-import "./Card.css";
+import "./Card.scss";
 
 const Card = (props) => {
   const playHandler = () => props.playHandler(props.item.id);
@@ -8,7 +8,7 @@ const Card = (props) => {
     <div
       onClick={props.gameOver ? null : playHandler}
       className={`card-component col-2 ${
-        props.gameOver ? "inactive" : "active"
+        props.gameOver || props.start ? "inactive" : "active"
       }`}
       style={props.style}
     >

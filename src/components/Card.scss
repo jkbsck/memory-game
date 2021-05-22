@@ -5,16 +5,18 @@
   border-radius: 50%;
   border: solid 1px rgba(255, 217, 0, 0.2);
   cursor: pointer;
+  transition: all 0.1s ease-in;
 }
 
 .card-component.active:hover {
-  box-shadow: 0 0 50px #8ee3ef30;
+  transform: scale(1.05);
+  box-shadow: 0 0 7px #8ee3efc8;
 }
 
 .img-wrapper {
   position: absolute;
   border-radius: 50%;
-  border: solid 2px #8ee3ef60;
+  border: solid 2px #95b2b0;
   top: 0;
   bottom: 0;
   left: 0;
@@ -30,16 +32,14 @@
 
 .card-component.active .img-wrapper img {
   transition: transform 0.12s ease-in;
-  /* transform: rotate(360deg); */
 }
 
 .card-component.active .img-wrapper img:hover {
-  /* transition: transform 2s ease-in-out; */
-  transform: rotate(-2deg) scale(1.07);
+  transform: rotate(-2deg) scale(1.1);
   box-shadow: 0 0 10px gold;
 }
 
-.card-component.inactive {
+.card-component.inactive .img-wrapper {
   filter: blur(30px);
   cursor: initial;
 }

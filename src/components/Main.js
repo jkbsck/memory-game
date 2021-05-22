@@ -130,10 +130,16 @@ const Main = (props) => {
       src: "https://d23.com/app/uploads/2018/02/1180w-600h_021618_video-thor-ragnarok-exclusive-clip.jpg",
     },
   ]);
+
+  const [start, setStart] = useState(true);
   const [score, setScore] = useState(0);
   const [highScore, setHighScore] = useState(0);
   const [selectedIDs, setSelectedIDs] = useState([]);
   const [gameOver, setGameOver] = useState(false);
+
+  const startHandler = () => {
+    setStart(false);
+  };
 
   const playHandler = (id) => {
     if (selectedIDs.includes(id) === false) {
@@ -170,6 +176,8 @@ const Main = (props) => {
     <div className="main-component">
       <div>
         <Score
+          start={start}
+          startHandler={startHandler}
           score={score}
           highScore={highScore}
           gameOver={gameOver}
@@ -178,6 +186,7 @@ const Main = (props) => {
         {items.map((item, i) => (
           <Card
             key={i}
+            start={start}
             item={item}
             style={cardStyles[i]}
             gameOver={gameOver}
