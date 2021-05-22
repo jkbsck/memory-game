@@ -4,14 +4,12 @@ import Main from "./components/Main";
 import React, { useState } from "react";
 
 function App() {
-  const [score, setScore] = useState(0);
-
   return (
     <div
-      className="App"
-      // style={{ height: "100vh", minHeight: "min-content" }}
+      className="App bg-info"
+      style={{ height: "100vh", maxWidth: "100vh", margin: "0 auto" }}
     >
-      <Header />
+      {/* <Header /> */}
       <Main />
     </div>
   );

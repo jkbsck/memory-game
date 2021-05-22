@@ -1,11 +1,12 @@
 import React from "react";
 
 const Card = (props) => {
+  const playHandler = () => props.playHandler(props.item.id);
+
   return (
     <div
-      className={
-        "col-2 position-absolute bg-primary rounded-circle " + props.className
-      }
+      onClick={props.gameOver ? null : playHandler}
+      className={"col-2 position-absolute rounded-circle " + props.className}
       style={Object.assign(
         {
           width: "16.667%",
@@ -13,7 +14,20 @@ const Card = (props) => {
         },
         props.style
       )}
-    ></div>
+    >
+      <div
+        className="position-absolute rounded-circle bg-danger"
+        style={{
+          top: "0",
+          bottom: "0",
+          left: "0",
+          right: "0",
+          filter: props.gameOver ? "blur(5px)" : "",
+        }}
+      >
+        {props.item.id}
+      </div>
+    </div>
   );
 };
 
